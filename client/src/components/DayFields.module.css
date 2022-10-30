@@ -9,7 +9,7 @@
     margin: 8px 0;
     text-align: center; 
     min-height: 100px;
-    background-color: #FFF7E9;
+    background-color: #5F9DF7;
     border-radius: 5px;
 }
 
@@ -20,7 +20,7 @@
 }
 
 .day {
-    flex-grow: 1;
+
 }
 
 .date {

@@ -1,17 +1,20 @@
 .background {
-	background-color: dodgerblue;
+    display: flex;
+    flex-direction: column;
+	background-color: #1746A2;
+    margin: 5px;
+    border-radius: 10px;
 }
 
-.h1 {
-	background-color: wheat;
+.planner {
+    color: white;
+    text-align: center;
+    margin: 5px 0 0 20px;
 }
 
 .week {
+    padding: 10px 15px 10px;
+    gap: 10px;
 	display: flex;
-	justify-content: space-around;
-	background-color: black;
 }
 
-.day {
-	background-color: aquamarine;
-}
