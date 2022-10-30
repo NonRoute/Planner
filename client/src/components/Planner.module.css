@@ -1,0 +1,17 @@
+.background {
+	background-color: dodgerblue;
+}
+
+.h1 {
+	background-color: wheat;
+}
+
+.week {
+	display: flex;
+	justify-content: space-around;
+	background-color: black;
+}
+
+.day {
+	background-color: aquamarine;
+}
