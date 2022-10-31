@@ -3,7 +3,7 @@ import styles from "./DayFields.module.css"
 const DayField = (props) => {
 	return (
 		<div className={styles.day}>
-			<h1 className={styles.date}>Date</h1>
+			<h1 className={styles.date}>Day</h1>
 			<div className={styles.task}>
 				<p className={styles.taskName}>Morning</p>
 			</div>

@@ -1,20 +1,49 @@
 .background {
-    display: flex;
-    flex-direction: column;
-	background-color: #1746A2;
-    margin: 5px;
-    border-radius: 10px;
+	display: flex;
+	flex-direction: column;
+	background-color: #1746a2;
+	margin: 5px;
+	border-radius: 10px;
+	overflow: auto;
+}
+
+.header {
+	padding: 0 20px;
+	display: flex;
+	justify-content: center;
 }
 
 .planner {
-    color: white;
-    text-align: center;
-    margin: 5px 0 0 20px;
+	color: white;
+	text-align: center;
+	flex: 1;
+	margin: 5px 0 0 20px;
+}
+
+.button {
+	align-self: flex-end;
+	height: 40px;
+	width: 40px;
+	margin-left: 5px;
+	padding: 0;
+	text-align: center;
+	font-size: 35px;
+	background-color: #5f9df7;
+	border: 2px white solid;
+	border-radius: 5px;
+}
+
+.button:hover {
+	transition-duration: 0.4s;
+	background-color: #b8cff1;
+}
+
+.button:active {
+    transform: scale(1.2);
 }
 
 .week {
-    padding: 10px 15px 10px;
-    gap: 10px;
+	padding: 10px 15px 10px;
+	gap: 10px;
 	display: flex;
 }
-
