@@ -5,11 +5,28 @@ exports.create = (req, res) => {
 
 	Plans.create({ day, tasks }, (err, plan) => {
 		if (tasks.length !== 4) {
-			return res.status(400).json({ error: "tasks length not equal to 4" })
+			return res
+				.status(400)
+				.json({ error: "tasks length not equal to 4" })
 		}
 		if (err) {
 			res.status(400).json(err.message)
 		}
 		res.json(plan)
 	})
+}
+
+exports.getAllPlans = (req, res) => {
+	Plans.find().exec((err, plans) => {
+		res.json(plans)
+	})
+}
+
+exports.getPlansFromDay = (req, res) => {
+	const { startDay } = req.params
+	Plans.find({ day: { $gte: parseInt(startDay), $lt: parseInt(startDay) + 7 } }).exec(
+		(err, plans) => {
+			res.json(plans)
+		}
+	)
 }
