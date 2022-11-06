@@ -9,7 +9,7 @@ const planSchema = mongoose.Schema({
         require: true
     },
     tasks: {
-        type: Array,
+        type: [String],
         require: true
     }
 }, {timestamps:true})

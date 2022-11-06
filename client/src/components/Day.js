@@ -6,16 +6,16 @@ const Day = (props) => {
 		<div className={styles.day}>
 			<h1 className={styles.date}>{props.date}</h1>
 			<div className={styles.task}>
-				<p className={styles.taskName}>Task01</p>
+				<p className={styles.taskName}>{props.tasks[0]}</p>
 			</div>
 			<div className={styles.task}>
-				<p className={styles.taskName}>Task02</p>
+				<p className={styles.taskName}>{props.tasks[1]}</p>
 			</div>
 			<div className={styles.task}>
-				<p className={styles.taskName}>Task03</p>
+				<p className={styles.taskName}>{props.tasks[2]}</p>
 			</div>
 			<div className={styles.task}>
-				<p className={styles.taskName}>Task04</p>
+				<p className={styles.taskName}>{props.tasks[3]}</p>
 			</div>
 		</div>
 	)

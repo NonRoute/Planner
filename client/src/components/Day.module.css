@@ -8,19 +8,24 @@
     justify-content: center;
     margin: 8px 0;
     text-align: center; 
-    min-height: 100px;
+    height: 100px;
     background-color: #FFF7E9;
     border-radius: 5px;
+    overflow: auto;
 }
 
 .taskName {
+    font-size: 14px;
     vertical-align: middle;
     margin: 8px;
-    font-weight: bold;
+    font-weight: bolder;
+    word-wrap: break-word;
 }
 
 .day {
+    flex: 1 1 0px;
     flex-grow: 1;
+    width: 0;
 }
 
 .date {

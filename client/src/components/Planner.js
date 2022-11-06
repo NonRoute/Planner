@@ -1,24 +1,39 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Day from "./Day"
 import DayField from "./DayFields"
 import styles from "./Planner.module.css"
 import { GrFormPreviousLink, GrFormNextLink } from "react-icons/gr"
+import axios from "axios"
 
 const Planner = () => {
 	const [plans, setPlans] = useState([
-		{ date: 1, task: ["task01", "task02", "task03", "task04"] },
-		{ date: 2, task: ["task01", "task02", "task03", "task04"] },
-		{ date: 3, task: ["task01", "task02", "task03", "task04"] },
-		{ date: 4, task: ["task01", "task02", "task03", "task04"] },
-		{ date: 5, task: ["task01", "task02", "task03", "task04"] },
-		{ date: 6, task: ["task01", "task02", "task03", "task04"] },
-		{ date: 7, task: ["task01", "task02", "task03", "task04"] },
+		{ date: 1, tasks: Array(4) },
+		{ date: 2, tasks: Array(4) },
+		{ date: 3, tasks: Array(4) },
+		{ date: 4, tasks: Array(4) },
+		{ date: 5, tasks: Array(4) },
+		{ date: 6, tasks: Array(4) },
+		{ date: 7, tasks: Array(4) },
 	])
 
 	const [beginDate, setBeginDate] = useState(1)
 
+	const fetchData = () => {
+		axios
+			.get(`${process.env.REACT_APP_API}/plan/${beginDate}`)
+			.then((response) => {
+				console.log(response.data)
+				setPlans(response.data)
+			})
+			.catch((err) => alert(err))
+	}
+
+	useEffect(() => {
+		fetchData()
+	}, [beginDate])
+
 	const moveToPrevWeek = () => {
-		setBeginDate((prev) => (prev === 1 ? prev : prev - 7))
+		setBeginDate((prev) => (prev <= 7 ? 1 : prev - 7))
 	}
 
 	const moveToNextWeek = () => {
@@ -39,7 +54,7 @@ const Planner = () => {
 			<div className={styles.week}>
 				<DayField />
 				{plans.map((plan, index) => (
-					<Day key={index} date={beginDate + index} />
+					<Day key={index} date={beginDate + index} tasks={plan.tasks}/>
 				))}
 			</div>
 		</div>

@@ -11,6 +11,7 @@ mongoose
 	.connect(process.env.DATABASE, {
 		useNewUrlParser: true,
 		useUnifiedTopology: false,
+		dbName: "planner"
 	})
 	.then(() => console.log("connect to mongodb successfully"))
 	.catch((err) => console.log(err))

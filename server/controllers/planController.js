@@ -24,9 +24,22 @@ exports.getAllPlans = (req, res) => {
 
 exports.getPlansFromDay = (req, res) => {
 	const { startDay } = req.params
-	Plans.find({ day: { $gte: parseInt(startDay), $lt: parseInt(startDay) + 7 } }).exec(
-		(err, plans) => {
-			res.json(plans)
+	Plans.find({
+		day: { $gte: parseInt(startDay), $lt: parseInt(startDay) + 7 },
+	}).exec((err, plans) => {
+		plan7days = []
+		for (
+			currentDay = startDay;
+			currentDay < parseInt(startDay) + 7;
+			currentDay++
+		) {
+			if (plans[0] && plans[0].day == currentDay) {
+				plan7days.push(plans[0])
+				plans.shift()
+			} else {
+				plan7days.push({ day: currentDay, tasks: ["", "", "", ""] })
+			}
 		}
-	)
+		res.json(plan7days)
+	})
 }
