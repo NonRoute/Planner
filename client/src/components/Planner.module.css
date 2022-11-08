@@ -20,6 +20,8 @@
 	flex: 1;
 	margin: 10px 0 0 20px;
 	font-weight: 800;
+	line-height: 40px;
+	font-size: 35px;
 }
 
 .button {

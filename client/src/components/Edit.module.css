@@ -1,0 +1,25 @@
+form {
+    background-color: white;
+    width: fit-content;
+    padding: 20px;
+    margin: 30px auto;
+    border-radius: 10px;
+}
+
+h1 {
+    font-size: 25px;
+    font-weight: 800;
+}
+
+.fromGroup {
+    margin-top: 10px;
+}
+
+input, select {
+    display: block;
+    margin: 5px auto;
+}
+
+.submit {
+    margin-top: 10px;
+}
