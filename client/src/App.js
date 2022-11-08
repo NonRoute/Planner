@@ -3,7 +3,7 @@ import Planner from './components/Planner';
 
 function App() {
   return (
-    <div>
+    <div className="app">
       <h1>Hello App</h1>
       <Planner />
     </div>

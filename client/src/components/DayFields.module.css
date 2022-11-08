@@ -16,11 +16,7 @@
 .taskName {
     vertical-align: middle;
     margin: 8px;
-    font-weight: bold;
-}
-
-.day {
-
+    font-weight: 800;
 }
 
 .date {
@@ -28,4 +24,5 @@
     margin: 0;
     background-color: #5F9DF7;
     border-radius: 8px;
+    font-weight: 800;
 }
