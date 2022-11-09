@@ -43,3 +43,26 @@ exports.getPlansFromDay = (req, res) => {
 		res.json(plan7days)
 	})
 }
+
+exports.getTaskByDayTime = (req, res) => {
+	const { day, time } = req.params
+	console.log(day, time)
+	Plans.find({
+		day: { $eq: parseInt(day) }
+	}).exec((err, plan) => {
+		if (plan.length === 0) {
+			plan = { day: day, task: "" }
+		} else {
+			if (time === "Morning") {
+				plan = { day, task: plan[0].tasks[0] }
+			} else if (time === "Afternoon") {
+				plan = { day, task: plan[0].tasks[1] }
+			} else if (time === "Evening") {
+				plan = { day, task: plan[0].tasks[2] }
+			} else {
+				plan = { day, task: plan[0].tasks[3] }
+			}
+		}
+		res.json(plan)
+	})
+}

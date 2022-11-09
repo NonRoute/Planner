@@ -7,13 +7,13 @@ import axios from "axios"
 
 const Planner = () => {
 	const [plans, setPlans] = useState([
-		{ date: 1, tasks: Array(4) },
-		{ date: 2, tasks: Array(4) },
-		{ date: 3, tasks: Array(4) },
-		{ date: 4, tasks: Array(4) },
-		{ date: 5, tasks: Array(4) },
-		{ date: 6, tasks: Array(4) },
-		{ date: 7, tasks: Array(4) },
+		{ day: 1, tasks: Array(4) },
+		{ day: 2, tasks: Array(4) },
+		{ day: 3, tasks: Array(4) },
+		{ day: 4, tasks: Array(4) },
+		{ day: 5, tasks: Array(4) },
+		{ day: 6, tasks: Array(4) },
+		{ day: 7, tasks: Array(4) },
 	])
 
 	const [beginDate, setBeginDate] = useState(1)
@@ -54,7 +54,7 @@ const Planner = () => {
 			<div className={styles.week}>
 				<DayField />
 				{plans.map((plan, index) => (
-					<Day key={index} date={beginDate + index} tasks={plan.tasks}/>
+					<Day key={index} date={plan.day} tasks={plan.tasks}/>
 				))}
 			</div>
 		</div>
