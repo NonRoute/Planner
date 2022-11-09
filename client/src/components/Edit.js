@@ -62,6 +62,7 @@ const Edit = () => {
 						readOnly={isLoading}
 						onChange={inputValue("day")}
 						value={state.day}
+						min="1"
 					/>
 				</div>
 				<div className={styles.fromGroup}>
