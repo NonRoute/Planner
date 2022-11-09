@@ -111,3 +111,12 @@ exports.updateTask = (req, res) => {
 		}
 	})
 }
+
+exports.deleteAllPlans = (req, res) => {
+	Plans.deleteMany().exec((err, plan) => {
+		if (err) console.log(err)
+		res.json({
+			message: "Delete success"
+		})
+	})
+}

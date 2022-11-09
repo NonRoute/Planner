@@ -25,6 +25,7 @@ const Edit = () => {
 			})
 			.catch((err) => alert(err))
 			.finally(() => setIsLoading(false))
+			// eslint-disable-next-line
 	}, [state.day, state.time])
 
 	const inputValue = (name) => (event) => {
@@ -79,7 +80,7 @@ const Edit = () => {
 					</select>
 				</div>
 				<div className={styles.fromGroup}>
-					<label>Task name</label>
+					<label>Edit task</label>
 					<input
 						type="text"
 						readOnly={isLoading}
@@ -88,7 +89,7 @@ const Edit = () => {
 					/>
 				</div>
 				<div className={styles.submit}>
-					<input type="Submit" value="submit" />
+					<input type="Submit" value="Submit" className={styles.submitBtn}/>
 				</div>
 			</form>
 		</div>

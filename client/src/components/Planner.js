@@ -32,6 +32,7 @@ const Planner = () => {
 
 	useEffect(() => {
 		fetchData()
+		// eslint-disable-next-line
 	}, [beginDate])
 
 	const moveToPrevWeek = () => {
@@ -62,6 +63,7 @@ const Planner = () => {
 					min="1"
 					value={day}
 					onChange={(e) => setDay(e.target.value)}
+					placeholder="Day"
 				/>
 				<button className={styles.button} onClick={searchDay}>
 					<AiOutlineSearch />

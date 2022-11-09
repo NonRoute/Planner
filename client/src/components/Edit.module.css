@@ -1,13 +1,14 @@
-form {
+form, .box {
     background-color: white;
     width: fit-content;
     padding: 20px;
     margin: 30px auto;
     border-radius: 10px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
 }
 
 h1 {
-    font-size: 25px;
+    font-size: 35px;
     font-weight: 800;
 }
 
@@ -15,11 +16,52 @@ h1 {
     margin-top: 10px;
 }
 
+label {
+    font-size: 20px;
+}
 input, select {
+    font-size: 20px;
     display: block;
     margin: 5px auto;
 }
 
 .submit {
     margin-top: 10px;
+}
+
+.submitBtn {
+    margin: 20px auto 0;
+    color: #036b37;
+	text-align: center;
+	background-color: #7cebb3;
+	border: 2px #036b37 solid;
+	border-radius: 5px;
+}
+
+.submitBtn:hover {
+	transition-duration: 0.4s;
+	background-color: #abf0ce;
+}
+
+.submitBtn:active {
+    transform: scale(1.2);
+}
+
+.deleteBtn {
+    margin: 0 auto 0;
+    font-size: 20px;
+    color: #8f1c1c;
+	text-align: center;
+	background-color: #faa3a3;
+	border: 2px #8f1c1c solid;
+	border-radius: 5px;
+}
+
+.deleteBtn:hover {
+	transition-duration: 0.4s;
+	background-color: #fdcbcb;
+}
+
+.deleteBtn:active {
+    transform: scale(1.2);
 }
