@@ -48,7 +48,7 @@ exports.getTaskByDayTime = (req, res) => {
 	const { day, time } = req.params
 	console.log(day, time)
 	Plans.find({
-		day: { $eq: parseInt(day) }
+		day: { $eq: parseInt(day) },
 	}).exec((err, plan) => {
 		if (plan.length === 0) {
 			plan = { day: day, task: "" }
@@ -64,5 +64,50 @@ exports.getTaskByDayTime = (req, res) => {
 			}
 		}
 		res.json(plan)
+	})
+}
+
+exports.updateTask = (req, res) => {
+	const { day, time } = req.params
+	const { task } = req.body
+	idx = "tasks."
+	let tasks = ["", "", "", ""]
+	if (time === "Morning") {
+		idx += 0
+		tasks[0] = task
+	} else if (time === "Afternoon") {
+		idx += 1
+		tasks[1] = task
+	} else if (time === "Evening") {
+		idx += 2
+		tasks[2] = task
+	} else {
+		idx += 3
+		tasks[3] = task
+	}
+
+	let query = {}
+	query[idx] = task
+
+	Plans.find({
+		day: { $eq: parseInt(day) },
+	}).exec((err, plan) => {
+		if (plan.length !== 0) {
+			Plans.findOneAndUpdate(
+				{ day },
+				{ $set: query },
+				{ new: true }
+			).exec((err, blog) => {
+				if (err) console.log(err)
+				res.json(blog)
+			})
+		} else {
+			Plans.create({ day, tasks }, (err, plan) => {
+				if (err) {
+					res.status(400).json(err.message)
+				}
+				res.json(plan)
+			})
+		}
 	})
 }
