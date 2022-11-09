@@ -14,10 +14,14 @@ const Edit = () => {
 	useEffect(() => {
 		setIsLoading(true)
 		axios
-			.get(`${process.env.REACT_APP_API}/taskAt/${state.day || "1"}/${state.time}`)
+			.get(
+				`${process.env.REACT_APP_API}/taskAt/${state.day || "0"}/${
+					state.time
+				}`
+			)
 			.then((response) => {
 				const { task } = response.data
-				setState({ ...state, task})
+				setState({ ...state, task })
 			})
 			.catch((err) => alert(err))
 			.finally(() => setIsLoading(false))
@@ -27,18 +31,46 @@ const Edit = () => {
 		setState({ ...state, [name]: event.target.value })
 	}
 
+	const submitForm = (e) => {
+		e.preventDefault()
+		axios
+			.put(
+				`${process.env.REACT_APP_API}/task/${state.day || "0"}/${
+					state.time
+				}`,
+				{
+					task: state.task,
+				}
+			)
+			.then((response) => {
+				alert("Edit success")
+			})
+			.catch((err) => {
+				alert(err)
+			})
+	}
+
 	return (
 		<div>
 			<Navbar />
-			<form>
+			<form onSubmit={submitForm}>
 				<h1>Edit task</h1>
 				<div className={styles.fromGroup}>
 					<label>Select day</label>
-					<input type="number" readOnly={isLoading} onChange={inputValue("day")} value={state.day}/>
+					<input
+						type="number"
+						readOnly={isLoading}
+						onChange={inputValue("day")}
+						value={state.day}
+					/>
 				</div>
 				<div className={styles.fromGroup}>
 					<label>Select time</label>
-					<select readOnly={isLoading} onChange={inputValue("time")} value={state.time}>
+					<select
+						readOnly={isLoading}
+						onChange={inputValue("time")}
+						value={state.time}
+					>
 						<option>Morning</option>
 						<option>Afternoon</option>
 						<option>Evening</option>
@@ -47,7 +79,12 @@ const Edit = () => {
 				</div>
 				<div className={styles.fromGroup}>
 					<label>Task name</label>
-					<input type="text" readOnly={isLoading} onChange={inputValue("task")} value={state.task} />
+					<input
+						type="text"
+						readOnly={isLoading}
+						onChange={inputValue("task")}
+						value={state.task}
+					/>
 				</div>
 				<div className={styles.submit}>
 					<input type="Submit" value="submit" />
