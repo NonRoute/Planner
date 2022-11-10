@@ -44,9 +44,17 @@ exports.getPlansFromDay = (req, res) => {
 	})
 }
 
+exports.getTasksByDay = (req, res) => {
+	const { day } = req.params
+	Plans.find({
+		day: { $eq: parseInt(day) },
+	}).exec((err, plan) => {
+		res.json(plan)
+	})
+}
+
 exports.getTaskByDayTime = (req, res) => {
 	const { day, time } = req.params
-	console.log(day, time)
 	Plans.find({
 		day: { $eq: parseInt(day) },
 	}).exec((err, plan) => {
@@ -126,7 +134,7 @@ exports.getDaysFromTask = (req, res) => {
 	Plans.aggregate([
 		{
 			$match: {
-				tasks: new RegExp(task),
+				tasks: new RegExp(task, "i"),
 			},
 		},
 		{

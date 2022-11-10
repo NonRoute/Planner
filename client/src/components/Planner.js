@@ -18,7 +18,7 @@ const Planner = () => {
 	])
 
 	const [beginDate, setBeginDate] = useState(1)
-	const [day, setDay] = useState(1)
+	const [day, setDay] = useState()
 
 	const fetchData = () => {
 		axios
