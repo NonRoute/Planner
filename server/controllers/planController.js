@@ -116,7 +116,36 @@ exports.deleteAllPlans = (req, res) => {
 	Plans.deleteMany().exec((err, plan) => {
 		if (err) console.log(err)
 		res.json({
-			message: "Delete success"
+			message: "Delete success",
 		})
+	})
+}
+
+exports.getDaysFromTask = (req, res) => {
+	const { task } = req.params
+	Plans.aggregate([
+		{
+			$match: {
+				tasks: new RegExp(task),
+			},
+		},
+		{
+			$group: {
+				_id: null,
+				day: {
+					$push: {
+						day: "$day",
+					},
+				},
+			},
+		},
+		{
+			$project: {
+				day: "$day.day",
+				_id: 0,
+			},
+		},
+	]).exec((err, plan) => {
+		res.json(plan)
 	})
 }

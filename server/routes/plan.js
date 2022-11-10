@@ -7,6 +7,7 @@ const {
 	getTaskByDayTime,
 	updateTask,
 	deleteAllPlans,
+	getDaysFromTask,
 } = require("../controllers/planController")
 
 router.post("/create", create)
@@ -14,5 +15,7 @@ router.get("/plans", getAllPlans)
 router.get("/plan/:startDay", getPlansFromDay)
 router.get("/taskAt/:day/:time", getTaskByDayTime)
 router.put("/task/:day/:time", updateTask)
+router.get("/days/:task", getDaysFromTask)
 router.delete("/deleteAllPlans", deleteAllPlans)
+
 module.exports = router
