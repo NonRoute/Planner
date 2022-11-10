@@ -62,7 +62,7 @@ const Planner = () => {
 					type="number"
 					min="1"
 					value={day}
-					onChange={(e) => setDay(e.target.value)}
+					onChange={(e) => setDay(parseInt(e.target.value))}
 					placeholder="Day"
 				/>
 				<button className={styles.button} onClick={searchDay}>
