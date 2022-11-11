@@ -30,16 +30,24 @@ Planner web application using MERN stack (MongoDB, Express, React, NodeJS)
 
 ## How to run the app
 1. Download the code
-2. Create .env file in /server/.env with
+2. Create .env file in /server
 ```
-DATABASE=[MongoDB Connection String URI]
+DATABASE=<your MongoDB connection string URI>
 PORT=5500
 ```
-3. Create .env file in /client/.env
+3. Create .env file in /client
 ```
 REACT_APP_API=http://localhost:5500/api
 ```
-3. Navigate to inside the project folder on terminal
-Run npm install
-Run npm start
-View the app at http://localhost:3000/
+4. Start server side
+```
+cd server
+npm install
+npm start
+```
+5. Start client side
+```
+cd client
+npm install
+npm start
+```
