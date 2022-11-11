@@ -27,3 +27,19 @@ Planner web application using MERN stack (MongoDB, Express, React, NodeJS)
 ### Admin page
 - Click to delete all planner data <br/>
 <img height="300" src="images/admin.png"/> <br/>
+
+## How to run the app
+1. Download the code
+2. Create .env file in /server/.env with
+```
+DATABASE=[MongoDB Connection String URI]
+PORT=5500
+```
+3. Create .env file in /client/.env
+```
+REACT_APP_API=http://localhost:5500/api
+```
+3. Navigate to inside the project folder on terminal
+Run npm install
+Run npm start
+View the app at http://localhost:3000/
